@@ -2,6 +2,8 @@ public class OrderService
 {
     public void ProcessOrder(Order order)
     {
+        var pro_date = new DateTime.UtcNow; 
+
         if (order.Type == "Online")
         {
             // Process online order
@@ -33,10 +35,25 @@ public class OrderService
 
 public class EmailService
 {
-    public void SendEmail(string to, string subject, string body)
+    public async Task SendEmail(string to, string subject, string body)
     {
+        await AddAttachmentAsync();
+        
         // Send email logic
         Console.WriteLine($"Sending email to {to}: {subject}");
+    }
+
+    public async void AddAttachmentAsync()
+    {
+        try
+        {
+            // Send email logic
+            Console.WriteLine($"Sending email to {to}: {subject}");
+        }
+        catch(Exception e)
+        {
+            throw e;
+        }
     }
 }
 
