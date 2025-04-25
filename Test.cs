@@ -47,8 +47,8 @@ public class EmailService
     {
         try
         {
-            // Send email logic
-            Console.WriteLine($"Sending email to {to}: {subject}");
+            // Add Attachment logic
+            Console.WriteLine($"Attaching file");
         }
         catch(Exception e)
         {
