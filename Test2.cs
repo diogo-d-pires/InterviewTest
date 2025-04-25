@@ -14,12 +14,11 @@ public class OrderProcessor
 
     public async Task AddOrderAsync(Order order)
     {
-        // Blocking async call with .Result which can lead to deadlocks
         var result = await SaveOrderAsync(order).Result;
         
         lock (_lock)
         {
-            _orders.Add(order); // Potential race condition
+            _orders.Add(order);
         }
     }
 
